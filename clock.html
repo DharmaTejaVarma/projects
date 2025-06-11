@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Clock with AM/PM</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+      font-size: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="clock">Loading...</div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+
+      hours = hours % 12;
+      hours = hours ? hours : 12; 
+
+      const h = hours < 10 ? '0' + hours : hours;
+      const m = minutes < 10 ? '0' + minutes : minutes;
+      const s = seconds < 10 ? '0' + seconds : seconds;
+
+      const timeString = `${h}:${m}:${s} ${ampm}`;
+      document.getElementById('clock').textContent = timeString;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock(); 
+  </script>
+
+</body>
+</html>
