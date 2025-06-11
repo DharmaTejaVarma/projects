@@ -12,6 +12,58 @@
             <button id="clearBtn">Clear</button>
             <ul id="taskList"></ul>
         </div>
-        <script src="todo.js"></script>
+        <script>
+            const addBtn = document.getElementById('addBtn');
+const taskInput = document.getElementById('taskInput');
+const taskList = document.getElementById('taskList');
+const clearBtn = document.getElementById('clearBtn');
+
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+function renderTasks() {
+  taskList.innerHTML = '';
+  tasks.forEach((task, index) => {
+
+    
+    const li = document.createElement('li');
+    li.innerHTML = `
+      ${task}
+      <button onclick="deleteTask(${index})">X</button>
+    `;
+    taskList.appendChild(li);
+  });
+}
+
+function addTask() {
+  const task = taskInput.value.trim();
+  if (task) {
+    tasks.push(task);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    taskInput.value = '';
+    renderTasks();
+  }
+}
+
+function deleteTask(index) {
+  tasks.splice(index, 1);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  renderTasks();
+}
+
+addBtn.addEventListener('click', addTask);
+taskInput.addEventListener('keypress', e => {
+  if (e.key === 'Enter') addTask();
+});
+function removeall(index){
+
+}
+function clearAllTasks() {
+    tasks=[];
+    localStorage.removeItem('tasks');
+    renderTasks();
+}
+clearBtn.addEventListener('click', clearAllTasks);
+renderTasks();
+        </script>
     </body>
 </html>
