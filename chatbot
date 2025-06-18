@@ -1,0 +1,43 @@
+import random
+import re
+def get_responces(user_input):
+    responces={
+        "hello":["hello!,what is your name?","Hi ,what is your name?"],
+        "what about you?":["I am  sheild, an voice activation chatbot","i am sheild"],
+        "great":["Nice to hear that!","Good to hear that!"],
+        "default":["i'm not sure about your words!","can you tell me again"],
+        "introduce  yourself":["I am  sheild, an voice activation chatbot","i am sheild"],
+        "how are you?":["I am doing great,how about you?"],
+        "i am fine":["Nice to hear that"],  
+        "what is special in you":["I am a chatbot, i can help you in many ways"],
+        "what is your name":["My name is Sheild"],
+        "what is your age":["I am a chatbot, i don't have age"],
+        "what is (a+b)^2":["a^2+b^2+2ab"],
+        "what is (a-b)^2":["a^2+b^2-2ab"],
+        "what is (a+b)(a-b)":["a^2-b^2"],
+        "what is your fav color":["I like pink color"],
+        "what is your fav food":["I like biryani"],
+        "what is your fav game":["I like cricket"],
+        "what is your fav movie":["I like bahubali,bahubali 2,jersy and so many other based on the mood...."],
+        "can you suggest me a good movie to watch":["bahubali","dangal","3 idiots","kabir singh","sahoo","avengers","game of thrones","jersy","arjun reddy","kgf","RRR"],
+        "can you suggest me a good game to play":["cricket","football","badminton","volleyball","basketball","kabaddi","hockey","tennis","table tennis","chess","carroms","ludo","snakes and ladders","uno","hide and seek"],
+        "can you suggest me a good food to eat":["biryani","pulihora","pulav","fried rice","dosa","idly","vada","pongal","upma","puri","chapathi","paratha","naan","roti","curd rice","lemon rice","tamarind rice","coconut rice","veg biryani","egg biryani","chicken biryani","mutton biryani","fish biryani","prawn biryani","veg pulav","egg pulav","chicken pulav","mutton pulav","fish pulav","prawn pulav","veg fried rice","egg fried rice","chicken fried rice","mutton fried rice","fish fried rice","prawn fried rice","veg noodles","egg noodles","chicken noodles","mutton noodles","fish noodles","prawn noodles","veg manchurian","gobi manchurian","chicken manchurian","mutton manchurian","fish"]
+    }
+    user_input=user_input.lower()
+    match = re.match(r"my name is (.+)", user_input)
+    if match:
+        name = match.group(1)
+        return f"Hello {name}, how are you today?"
+    
+    if user_input in responces:
+        return random.choice(responces[user_input])
+    else:
+        return random.choice(responces["default"])
+print("SHEILD:HELLO MATE ,I AM AN OPENN CHATBOT")
+while True:
+    user_input=input("you: ")
+    if user_input.lower()== "exit":
+        print("Sheild:BYE!,have a great day")
+        break
+    else:
+        print("Sheild:",get_responces(user_input))
