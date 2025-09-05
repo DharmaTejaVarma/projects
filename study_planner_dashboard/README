@@ -1,0 +1,48 @@
+Of course! Here is a sweet and short README perfect for your GitHub profile.
+
+Study Planner Dashboard 🚀
+A modern, responsive dashboard built with React & Tailwind CSS to help you organize study tasks, track your progress, and boost productivity.
+
+(Replace the link above with a screenshot of your project)
+
+✨ Core Features
+📝 Task Management: Full CRUD functionality with search and filters.
+
+📊 Analytics: Track your productivity with insightful charts.
+
+📅 Calendar View: Visualize your tasks and due dates.
+
+🌗 Light & Dark Mode: A sleek, themeable interface.
+
+🍅 Pomodoro Timer: A built-in timer to stay focused.
+
+⚙️ Custom Settings: Personalize your experience and export/import your data.
+
+🛠️ Built With
+React
+
+Tailwind CSS
+
+React Router
+
+Recharts
+
+Lucide Icons
+
+🚀 Quick Start
+Clone the repository:
+
+Bash
+
+git clone https://github.com/your-username/study-planner.git
+Install dependencies:
+
+Bash
+
+npm install
+Run the app:
+
+Bash
+
+npm run dev
+The app will be running on http://localhost:5173. Enjoy!
